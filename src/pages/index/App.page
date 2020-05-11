@@ -1,0 +1,37 @@
+<template>
+    <div>
+        <hello></hello>
+        <button>hhh</button>
+        <div class="img-box"></div>
+        测试watch
+        <img v-if="demo" :src="require(`../../static/img/${demo}.jpg`)" alt="">
+    </div>
+</template>
+<script>
+    import Hello from './componets/Hello.vue'
+
+    export default {
+        name: 'App',
+        data() {
+            return {
+                demo: ''
+            }
+        },
+        components: {
+            Hello
+        },
+        mounted() {
+            setTimeout(() => {
+                this.demo = 'demo'
+            }, 2000)
+        }
+    }
+</script>
+<style lang="scss">
+    .img-box {
+        width: 120px;
+        height: 100px;
+        background: url("../../../public/img/video.png") no-repeat;
+        background-size: 100%;
+    }
+</style>
